@@ -86,3 +86,7 @@ AS numeros_completos
 GROUP BY numero_completo
 HAVING COUNT(numero_completo) > 1;
 ```
+
+
+#### Visualización de la Base de Datos en MySql Workbrench
+![Db](img/dbcsharpmig.png)
