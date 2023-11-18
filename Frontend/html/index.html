@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>  Avance Documentos Contables</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>CRUD Documentos Contables</h1>
+    <div id="div-listado">
+      <h2>Listado de documentos</h2>
+      <table id="table-listado">
+        <thead>
+          <tr>
+            <th>Número</th>
+            <th>Fecha</th>
+            <th>Tipo</th>
+            <th>Empresa</th>
+            <th>Estado</th>
+            <th>Base</th>
+            <th>Impuestos</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="div-formulario">
+      <h2>Formulario de documento</h2>
+      <form id="form-documento">
+        <input type="hidden" name="iddocumento" id="iddocumento">
+        <div class="form-group">
+          <label for="numero">Número</label>
+          <input type="text" class="form-control" id="numero" placeholder="Número de documento">
+        </div>
+        <div class="form-group">
+          <label for="fecha">Fecha</label>
+          <input type="date" class="form-control" id="fecha" placeholder="Fecha del documento">
+        </div>
+        <div class="form-group">
+          <label for="tipo">Tipo</label>
+          <select class="form-control" id="tipo">
+            <option value="1">Factura</option>
+            <option value="2">Nota débito</option>
+            <option value="3">Nota crédito</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="empresa">Empresa</label>
+          <select class="form-control" id="empresa">
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="estado">Estado</label>
+          <select class="form-control" id="estado">
+            <option value="1">Recibido</option>
+            <option value="2">En validación</option>
+            <option value="3">Sin errores</option>
+            <option value="4">Formato incorrecto</option>
+            <option value="5">Con errores</option>
+            <option value="6">Fuera de vigencia</option>
+            <option value="7">Fuera de rango</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="base">Base</label>
+          <input type="number" class="form-control" id="base" placeholder="Base del documento">
+        </div>
+        <div class="form-group">
+          <label for="impuestos">Impuestos</label>
+          <input type="number" class="form-control" id="impuestos" placeholder="Impuestos del documento">
+        </div>
+        <button type="button" class="btn btn-primary" id="btn-guardar">Guardar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // Cargar la lista de documentos
+      cargarListadoDocumentos();
+
+      // Cargar la lista de empresas
+      cargarListaEmpresas();
+
+      // Eventos del formulario
+      $("#btn-guardar").click(function() {
+        guardarDocumento();
+      });
+    });
+  </script>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
